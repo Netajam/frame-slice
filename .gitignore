@@ -42,3 +42,5 @@ video/*
 !video/test.mp4
 output/*
 !output/output-folder.txt
+/input
+/output

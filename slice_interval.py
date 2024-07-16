@@ -2,8 +2,7 @@
 import cv2
 import os
 
-
-def slice_interval(video_path, output_folder, frame_interval):
+def slice_interval(video_path, output_folder, frame_interval, prefix):
     # Load the video at the specified path
     video = cv2.VideoCapture(video_path)
 
@@ -28,7 +27,7 @@ def slice_interval(video_path, output_folder, frame_interval):
         # If the current frame number is a multiple of the interval,
         # then save the frame to the output folder
         if frame_number % frame_interval == 0:
-            output_path = os.path.join(output_folder, f'frame_{frame_number:04d}.jpg')
+            output_path = os.path.join(output_folder, f'{prefix}frame_{frame_number:04d}.jpg')
             cv2.imwrite(output_path, frame)
             print(f'Saved frame {frame_number}/{total_frames} to {output_path}')
 
